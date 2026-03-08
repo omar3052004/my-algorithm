@@ -1,0 +1,39 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+int main(){
+int n , q ;
+cin>>n >> q ;
+vector<int> v;
+bool found [51] = {false};
+for (int i=0; i<n ; i++){
+    int color;
+    cin>>color;
+    if(!found[color]){
+    v.push_back(color);
+    found[color]=true;
+
+}
+}
+for(int i=0 ;i<q; i++){
+    int target;
+    cin>> target;
+
+    int pos=0;
+    for(int j=0; j<v.size(); j++){
+    if(v[j]== target){
+        pos =j;
+        break;
+    }
+
+    }
+    cout<< pos+1 << (i== q - 1 ?"" : " ");
+    int color_to_move = v[pos];
+    v.erase(v.begin()+ pos);
+    v.insert(v.begin(),color_to_move);
+}
+
+
+return 0;
+    }
+
